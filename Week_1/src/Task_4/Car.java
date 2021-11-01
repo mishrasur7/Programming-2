@@ -1,5 +1,7 @@
 package Task_4;
 
+import java.text.DecimalFormat;
+
 public class Car extends MotorVehicle implements Ownable{
 	private int value; 
 
@@ -17,7 +19,8 @@ public class Car extends MotorVehicle implements Ownable{
 	}
 	
 	public String toString() {
-		return "Car: " + super.getModel() + " ( value " + value + " euros)" ; 
+		DecimalFormat oneDecimal = new DecimalFormat("0.0"); 
+		return "Car: " + super.getModel() + " ( value " + oneDecimal.format(value).replace(',', '.') + " euros)" ; 
 	}
 
 }

@@ -1,25 +1,27 @@
 package Task_4;
 
-public class Bicycle extends Object implements Ownable {
-	private int value; 
-	
+import java.text.DecimalFormat;
+
+public class Bicycle implements Ownable {
+	private String name;
+	private int value;
+
 	public Bicycle(String name, int value) {
-		super(); 
-		this.value = value; 
+		this.name = name;
+		this.value = value;
 	}
-	
+
 	public int getValue() {
-		return value; 
+		return value;
 	}
-	
+
 	public void setValue(int value) {
-		this.value = value; 
+		this.value = value;
 	}
-	
+
 	public String toString() {
-		return "Bicycle: " + super.toString() + " ( value " + value + " euros)" ; 
+		DecimalFormat oneDecimal = new DecimalFormat("0.0");
+		return "Bicycle: " + name + " ( value " + oneDecimal.format(value).replace(',', '.') + " euros)";
 	}
-	
-	
 
 }
