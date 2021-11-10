@@ -11,7 +11,6 @@ public class ObjectsFriendMapProgram {
 	private static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		
 
 		displayMenu();
 		int choice = getChoice();
@@ -27,9 +26,10 @@ public class ObjectsFriendMapProgram {
 				printFriends();
 			} else {
 				System.out.println("Please enter a number between 0 and 4");
+				displayMenu();
 			}
-			
-			choice = getChoice(); 
+
+			choice = getChoice();
 
 		}
 
@@ -46,8 +46,15 @@ public class ObjectsFriendMapProgram {
 	// getChoice method will read the choice from the users
 	private static int getChoice() {
 		Scanner input = new Scanner(System.in);
-		
-		
+		int choice;
+		try {
+			return choice = Integer.parseInt(input.nextLine());
+		} catch (NumberFormatException nfe) {
+			System.out.println("Please enter a number between 0 and 4");
+			displayMenu();
+		}
+		return getChoice();
+
 	}
 
 	// addFriend method will read nickname, name and birthdate from user and add it
@@ -56,22 +63,26 @@ public class ObjectsFriendMapProgram {
 
 		System.out.print("Enter nickname: ");
 		String nickName = input.nextLine();
-		System.out.print("Enter name: ");
-		String name = input.nextLine();
-		System.out.print("Enter birthdate (dd.mm.yyyy): ");
-		String birthDate = input.nextLine();
 
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.mm.yyyy");
-			LocalDate localDate = LocalDate.parse(birthDate, formatter);
-			Friend friend1 = new Friend(nickName, name, formatter.format(localDate));
-			if (!friendMap.containsKey(nickName)) {
+		if (friendMap.containsKey(nickName)) {
+			System.out.println(nickName + " is already in use!");
+
+		} else {
+			System.out.print("Enter name: ");
+			String name = input.nextLine();
+			System.out.print("Enter birthdate (dd.mm.yyyy): ");
+			String birthDate = input.nextLine();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy"); 
+			
+			try {
+				LocalDate localDate = LocalDate.parse(birthDate, formatter); 
+				Friend friend1 = new Friend(nickName, name, birthDate);
 				friendMap.put(nickName, friend1);
-			} else {
-				System.out.print(nickName + " is already in use!");
+			} catch (Exception e) {
+				System.out.println("Invalid date: " + birthDate);
 			}
-		} catch (NumberFormatException nfe) {
-			System.out.print("Invalid date: " + birthDate);
+			
+			
 		}
 
 		displayMenu();
@@ -80,26 +91,26 @@ public class ObjectsFriendMapProgram {
 
 	public static void findFriend() {
 		System.out.print("Enter nickname: ");
-		String nickName = input.nextLine(); 
-		if(friendMap.containsKey(nickName)) {
+		String nickName = input.nextLine();
+		if (friendMap.containsKey(nickName)) {
 			System.out.print(friendMap.get(nickName));
 		} else {
 			System.out.print(nickName + " not found!");
 		}
 	}
-	
+
 	public static void deleteFriend() {
 		System.out.print("Enter nickname: ");
 		String nickName = input.nextLine();
-		if(friendMap.containsKey(nickName)) {
+		if (friendMap.containsKey(nickName)) {
 			System.out.print(friendMap.remove(nickName));
 		} else {
 			System.out.print(nickName + " not found!");
 		}
 	}
-	
+
 	public static void printFriends() {
-		for(Friend friends : friendMap.values()) {
+		for (Friend friends : friendMap.values()) {
 			System.out.print(friends + "\n");
 		}
 	}
