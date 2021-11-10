@@ -1,6 +1,5 @@
 package Task_1;
 
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
