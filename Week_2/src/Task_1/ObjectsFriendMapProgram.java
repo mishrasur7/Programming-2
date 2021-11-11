@@ -66,27 +66,38 @@ public class ObjectsFriendMapProgram {
 
 		if (friendMap.containsKey(nickName)) {
 			System.out.println(nickName + " is already in use!");
+			displayMenu();
 
 		} else {
 			System.out.print("Enter name: ");
 			String name = input.nextLine();
 			System.out.print("Enter birthdate (dd.mm.yyyy): ");
 			String birthDate = input.nextLine();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy"); 
-			
-			try {
-				LocalDate localDate = LocalDate.parse(birthDate, formatter); 
+
+			boolean valid = isValid(birthDate);
+
+			if (valid == true) {
 				Friend friend1 = new Friend(nickName, name, birthDate);
 				friendMap.put(nickName, friend1);
-			} catch (Exception e) {
+				displayMenu();
+			} else {
 				System.out.println("Invalid date: " + birthDate);
+				System.out.print("Enter birthdate (dd.mm.yyyy): ");
 			}
-			
-			
+
 		}
 
-		displayMenu();
+	}
 
+	public static boolean isValid(String birthDate) {
+		boolean valid = true;
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.M.yyyy");
+			LocalDate localDate = LocalDate.parse(birthDate, formatter);
+		} catch (Exception e) {
+			valid = false;
+		}
+		return valid;
 	}
 
 	public static void findFriend() {
