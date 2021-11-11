@@ -2,7 +2,10 @@ package Task_1;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 import java.util.HashMap;
+
 import java.util.Map;
 import java.util.Scanner;
 
@@ -74,30 +77,30 @@ public class ObjectsFriendMapProgram {
 			System.out.print("Enter birthdate (dd.mm.yyyy): ");
 			String birthDate = input.nextLine();
 
-			boolean valid = isValid(birthDate);
-
-			if (valid == true) {
-				Friend friend1 = new Friend(nickName, name, birthDate);
-				friendMap.put(nickName, friend1);
-				displayMenu();
-			} else {
+			boolean valid = validate(birthDate);
+			while (valid == false) {
 				System.out.println("Invalid date: " + birthDate);
 				System.out.print("Enter birthdate (dd.mm.yyyy): ");
+				birthDate = input.nextLine();
+				valid = validate(birthDate); 
 			}
+
+			Friend friend1 = new Friend(nickName, name, birthDate);
+			friendMap.put(nickName, friend1);
+			displayMenu();
 
 		}
 
 	}
 
-	public static boolean isValid(String birthDate) {
-		boolean valid = true;
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.M.yyyy");
-			LocalDate localDate = LocalDate.parse(birthDate, formatter);
-		} catch (Exception e) {
-			valid = false;
+	public static boolean validate(String date) {
+
+		if (date.matches("(0?[1-9]|[12][0-9]|3[01])\\.(0?[1-9]|1[012])\\.(\\d{4})")) {
+			return true;
+		} else {
+			return false;
 		}
-		return valid;
+
 	}
 
 	public static void findFriend() {
@@ -105,8 +108,10 @@ public class ObjectsFriendMapProgram {
 		String nickName = input.nextLine();
 		if (friendMap.containsKey(nickName)) {
 			System.out.print(friendMap.get(nickName));
+			displayMenu();
 		} else {
 			System.out.print(nickName + " not found!");
+			displayMenu();
 		}
 	}
 

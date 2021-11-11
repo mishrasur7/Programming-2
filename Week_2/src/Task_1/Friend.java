@@ -1,5 +1,7 @@
 package Task_1;
 
+import java.time.LocalDate;
+
 public class Friend {
 	private String nickName; 
 	private String name; 
