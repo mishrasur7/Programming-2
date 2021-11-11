@@ -120,8 +120,10 @@ public class ObjectsFriendMapProgram {
 		String nickName = input.nextLine();
 		if (friendMap.containsKey(nickName)) {
 			System.out.print(friendMap.remove(nickName));
+			displayMenu();
 		} else {
 			System.out.print(nickName + " not found!");
+			displayMenu();
 		}
 	}
 
@@ -129,6 +131,7 @@ public class ObjectsFriendMapProgram {
 		for (Friend friends : friendMap.values()) {
 			System.out.print(friends + "\n");
 		}
+		displayMenu();
 	}
 
 }
