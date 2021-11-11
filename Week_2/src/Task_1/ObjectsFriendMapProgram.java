@@ -119,7 +119,8 @@ public class ObjectsFriendMapProgram {
 		System.out.print("Enter nickname: ");
 		String nickName = input.nextLine();
 		if (friendMap.containsKey(nickName)) {
-			System.out.print(friendMap.remove(nickName));
+			friendMap.remove(nickName);
+			System.out.print(nickName + " deleted!");
 			displayMenu();
 		} else {
 			System.out.print(nickName + " not found!");
