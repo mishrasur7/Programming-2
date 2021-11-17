@@ -32,7 +32,7 @@ public class PrintMoviesFromGivenYear {
 
 			// 2. Define the SQL query text (NB! Exclamation mark is used as a place-holder
 			// for a parameter value)
-			String sqlText = "SELECT year, name, director FROM Movie WHERE year = ? ORDER BY name";
+			String sqlText = "SELECT id, firstname, lastname, streetaddress, postcode, postoffice FROM Student WHERE id = ?";
 
 			// 3. Create a prepared statement based on the SQL query text
 			preparedStatement = connection.prepareStatement(sqlText);
