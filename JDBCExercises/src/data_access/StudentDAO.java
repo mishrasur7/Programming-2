@@ -104,14 +104,14 @@ public class StudentDAO {
 
 		return null;
 	}
-	
+
 	public String getAllStudentsJSON() {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		List<Student> studentList = new ArrayList<Student>();
 		Gson gson = new Gson();
-		String jsonString = ""; 
+		String jsonString = "";
 
 		try {
 			connection = openConnection();
@@ -141,6 +141,36 @@ public class StudentDAO {
 		}
 
 		return jsonString;
+	}
+
+	public int insertStudent(Student student) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int errorCode = -1;
+
+		try {
+			connection = openConnection();
+			String sqlText = "INSERT INTO Student (id, firstname, lastname, streetaddress, postcode, postoffice) "
+					+ "VALUES (?, ?, ?, ?, ?,?)";
+			preparedStatement = connection.prepareStatement(sqlText);
+			preparedStatement.setInt(1, student.getId());
+			preparedStatement.setString(2, student.getFirstName());
+			preparedStatement.setString(3, student.getLastName());
+			preparedStatement.setString(4, student.getStreetAddress());
+			preparedStatement.setString(5, student.getPostCode());
+			preparedStatement.setString(6, student.getPostOffice());
+			
+			preparedStatement.executeUpdate();
+			errorCode = 0;
+		} catch (SQLException sqle) {
+			if (sqle.getErrorCode() == ConnectionParameters.PK_VIOLATION_ERROR) {
+				errorCode = 1;
+			} else {
+				System.out.println("\n[ERROR] StudentDAO: insertStudent() failed. " + sqle.getMessage() + "\n");
+				errorCode = -1;
+			}
+		}
+		return errorCode;
 	}
 
 }
