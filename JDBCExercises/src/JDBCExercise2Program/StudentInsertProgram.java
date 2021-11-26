@@ -8,7 +8,7 @@ import data_access.StudentDAO;
 public class StudentInsertProgram {
 
 	public static void main(String[] args) {
-		System.out.println("=== Student using DAO=== \n");
+		System.out.println("=== Inserting a new Student using DAO=== \n");
 		Scanner input = new Scanner(System.in);
 		System.out.print("Id: ");
 		int id = Integer.parseInt(input.nextLine());

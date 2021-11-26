@@ -159,7 +159,7 @@ public class StudentDAO {
 			preparedStatement.setString(4, student.getStreetAddress());
 			preparedStatement.setString(5, student.getPostCode());
 			preparedStatement.setString(6, student.getPostOffice());
-			
+
 			preparedStatement.executeUpdate();
 			errorCode = 0;
 		} catch (SQLException sqle) {
@@ -168,6 +168,58 @@ public class StudentDAO {
 			} else {
 				System.out.println("\n[ERROR] StudentDAO: insertStudent() failed. " + sqle.getMessage() + "\n");
 				errorCode = -1;
+			}
+		}
+		return errorCode;
+	}
+
+	public int deleteStudent(int studentId) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int errorCode = -1;
+
+		try {
+			connection = openConnection();
+			String sqlText = "DELETE FROM Student WHERE id = ?";
+			preparedStatement = connection.prepareStatement(sqlText);
+			preparedStatement.setInt(1, studentId);
+			errorCode = preparedStatement.executeUpdate();
+		} catch (SQLException sqle) {
+			
+			System.out.println("\n[ERROR] StudentDAO: insertStudent() failed. " + sqle.getMessage() + "\n");
+			errorCode = -1;
+
+		}
+
+		return errorCode;
+	}
+
+	public int updateStudent(Student student) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		int errorCode = -1;
+
+		try {
+			connection = openConnection();
+			String sqlText = "UPDATE Student set firstname = ?, lastname = ?, streetaddress = ?, postcode = ?, postoffice = ? WHERE id = ?";
+			preparedStatement = connection.prepareStatement(sqlText);
+
+			preparedStatement.setString(1, student.getFirstName());
+			preparedStatement.setString(2, student.getLastName());
+			preparedStatement.setString(3, student.getStreetAddress());
+			preparedStatement.setString(4, student.getPostCode());
+			preparedStatement.setString(5, student.getPostOffice());
+			preparedStatement.setInt(6, student.getId());
+
+			errorCode = preparedStatement.executeUpdate();
+
+		} catch (SQLException sqle) {
+			if(sqle.getErrorCode() != ConnectionParameters.PK_VIOLATION_ERROR) {
+				errorCode = 1; 
+			} else {
+				errorCode = -1; 
 			}
 		}
 		return errorCode;
