@@ -12,12 +12,26 @@ function printStudents(studentList) {
 			console.log(student.lastName);
 		}
 	*/
-	var outPutText = "ID " + " Last name " + " First name " + " Street " +
-		" Postcode " + " Post office <br/>";
+
+	var studentTable = document.getElementById("studentListTable");
 	for (var student of studentList) {
-		outPutText += student.id + " " + student.lastName + " " + student.firstName +
-			" " + student.streetAddress + " " + student.postCode + " " +
-			student.postOffice + "<br/>";
+		var newRow = studentTable.insertRow();
+
+		var newCell1 = newRow.insertCell(0);
+		var newCell2 = newRow.insertCell(1);
+		var newCell3 = newRow.insertCell(2);
+		var newCell4 = newRow.insertCell(3);
+		var newCell5 = newRow.insertCell(4);
+		var newCell6 = newRow.insertCell(5);
+
+		newCell1.innerHTML = student.id;
+		newCell2.innerHTML = student.lastName;
+		newCell3.innerHTML = student.firstName;
+		newCell4.innerHTML = student.streetAddress;
+		newCell5.innerHTML = student.postCode;
+		newCell6.innerHTML = student.postOffice;
+
+
 	}
 
 	document.getElementById("table1").innerHTML = outPutText;

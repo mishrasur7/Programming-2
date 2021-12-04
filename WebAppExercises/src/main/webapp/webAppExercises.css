@@ -2,3 +2,8 @@ body {
 	padding-top : 50px; 
 	padding-left : 350px; 
 }
+
+table, td {
+	border : 1px solid; 
+	border-collapse : collapse; 
+}
