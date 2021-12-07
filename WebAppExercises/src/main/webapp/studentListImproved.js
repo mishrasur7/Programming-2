@@ -1,15 +1,8 @@
 function main() {
-	getDataFromServer(); 
-
+	getDataFromServer("/WebAppExercises/students", printStudents);
 }
 
 function printStudents(studentList) {
-
-	/* This loop was used to display lastname into browser console	
-	for (var student of studentList) {
-			console.log(student.lastName);
-		}
-	*/
 
 	var studentTable = document.getElementById("studentListTable");
 	for (var student of studentList) {
@@ -33,6 +26,6 @@ function printStudents(studentList) {
 
 	}
 
-	document.getElementById("table1").innerHTML = outPutText;
+
 }
 main(); 
