@@ -29,7 +29,7 @@ public class StudentAddServlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
-		int studentId = Integer.parseInt(request.getParameter("studentId"));
+		int studentId = Integer.parseInt(request.getParameter("id"));
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String streetAddress = request.getParameter("streetAddress");
