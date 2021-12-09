@@ -185,10 +185,9 @@ public class StudentDAO {
 			preparedStatement.setInt(1, studentId);
 			errorCode = preparedStatement.executeUpdate();
 		} catch (SQLException sqle) {
-			
-			System.out.println("\n[ERROR] StudentDAO: insertStudent() failed. " + sqle.getMessage() + "\n");
-			errorCode = -1;
 
+			System.out.println("\n[ERROR] StudentDAO: deleteStudent() failed. " + sqle.getMessage() + "\n");
+			errorCode = -1;
 		}
 
 		return errorCode;
@@ -216,10 +215,10 @@ public class StudentDAO {
 			errorCode = preparedStatement.executeUpdate();
 
 		} catch (SQLException sqle) {
-			if(sqle.getErrorCode() != ConnectionParameters.PK_VIOLATION_ERROR) {
-				errorCode = 1; 
+			if (sqle.getErrorCode() != ConnectionParameters.PK_VIOLATION_ERROR) {
+				errorCode = 1;
 			} else {
-				errorCode = -1; 
+				errorCode = -1;
 			}
 		}
 		return errorCode;

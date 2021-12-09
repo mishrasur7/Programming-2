@@ -7,3 +7,14 @@ table, td {
 	border : 1px solid; 
 	border-collapse : collapse; 
 }
+
+input {
+	border: 2px solid black; 
+}
+
+#button {
+	height: 30px; 
+	width: 50px; 
+	background-color: yellow; 
+	
+}

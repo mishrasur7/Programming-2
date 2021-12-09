@@ -38,11 +38,11 @@ public class StudentAddServlet extends HttpServlet {
 		StudentDAO studentDAO = new StudentDAO();
 		Student student = new Student(studentId, firstName, lastName, streetAddress, postCode, postOffice);
 		int errorCode = studentDAO.insertStudent(student);
-		
+
 		Gson gson = new Gson();
-		String json = gson.toJson(errorCode);
+		String json = gson.toJson(new Status(errorCode));
 		PrintWriter out = response.getWriter();
-		out.print(errorCode);
+		out.print(json);
 
 	}
 
