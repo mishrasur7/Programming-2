@@ -22,9 +22,9 @@ function addStudent() {
 }
 
 function processStatus(status) {
-	if (status.errorCode === 0) {
+	if (status === 0) {
 		alert("Student data added!");
-	} else if (status.errorCode === 1) {
+	} else if (status === 1) {
 		alert("Cannot add the student, the id is already in use!");
 	} else {
 		alert("The database is temporarily unavailable. Please try again later.")

@@ -27,7 +27,6 @@ public class StudentAddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 
 		int studentId = Integer.parseInt(request.getParameter("id"));
 		String firstName = request.getParameter("firstName");
@@ -39,13 +38,12 @@ public class StudentAddServlet extends HttpServlet {
 		StudentDAO studentDAO = new StudentDAO();
 		Student student = new Student(studentId, firstName, lastName, streetAddress, postCode, postOffice);
 		int errorCode = studentDAO.insertStudent(student);
-		String error = "error code: " + errorCode;
 		
-		Gson gson = new Gson(); 
-		String json = gson.toJson(error); 
-		
-		out.print(json); 
-		
+		Gson gson = new Gson();
+		String json = gson.toJson(errorCode);
+		PrintWriter out = response.getWriter();
+		out.print(errorCode);
+
 	}
 
 }
