@@ -1,3 +1,4 @@
+//defining a function deleteStudent
 function deleteStudent() {
 	var url = "/WebAppExercises/deleteStudent";
 	var inputId = document.forms["formDelete"];
@@ -6,6 +7,9 @@ function deleteStudent() {
 	postDataToServer(url, requestParameters, processStatus); 
 }
 
+
+//defining a function processStatus that can be used as a reference to 
+//postDataToServer function 
 function processStatus(status) {
 	if (status.errorCode >= 1) {
 		alert("Student data deleted!");
