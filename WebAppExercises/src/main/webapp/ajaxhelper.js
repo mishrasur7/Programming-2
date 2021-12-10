@@ -1,5 +1,5 @@
 //creating getDataFromServer function with two parameters 
-function getDataFromServer(url, printStudents) {
+function getDataFromServer(url, callbackFunction) {
 	fetch(url)
 		.then(response => {
 			if (response.ok) {
@@ -8,13 +8,13 @@ function getDataFromServer(url, printStudents) {
 				throw response.status;
 			}
 		})
-		.then(studentList => printStudents(studentList))
+		.then(data => callbackFunction(data))
 		.catch(errorText => alert("getDataFromServer failed " + errorText));
 
 }
 
 //creating postDataToServer function with three parameters 
-function postDataToServer(url, requestParameters, processStatus) {
+function postDataToServer(url, requestParameters, callbackFunction) {
 
 	var requestOptions = {
 		method: "POST",
@@ -30,7 +30,7 @@ function postDataToServer(url, requestParameters, processStatus) {
 				throw "HTTP status code is " + response.status;
 			}
 		})
-		.then(status => processStatus(status))
+		.then(status => callbackFunction(status))
 		.catch(errorText => alert("postDataToServer failed: " + errorText));
 
 }

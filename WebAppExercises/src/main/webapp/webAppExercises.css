@@ -1,6 +1,6 @@
 body {
 	padding-top : 50px; 
-	padding-left : 350px; 
+	padding-left : 300px; 
 }
 
 table, td {
@@ -17,4 +17,18 @@ input {
 	width: 50px; 
 	background-color: yellow; 
 	
+}
+
+/*css for class and id of table for students.html page*/
+
+#dataId {
+	height: 25px; 
+	width: 30px; 
+	padding-left: 7px; 
+}
+
+.data {
+	height: 25px; 
+	width: 90px; 
+	padding-left: 7px; 
 }
