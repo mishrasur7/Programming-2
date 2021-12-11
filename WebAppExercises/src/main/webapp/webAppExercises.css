@@ -32,3 +32,10 @@ input {
 	width: 90px; 
 	padding-left: 7px; 
 }
+
+.function {
+	height: 25px; 
+	width: 90px; 
+	text-decoration: underline; 
+	color: blue; 
+}
