@@ -34,7 +34,5 @@ function printStudents(studentList) {
 
 
 	}
-
-	document.getElementById("table1").innerHTML = outPutText;
 }
 main(); 
