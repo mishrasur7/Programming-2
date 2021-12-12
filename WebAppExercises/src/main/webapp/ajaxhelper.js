@@ -1,3 +1,5 @@
+//this file contains functions that can be used in other programs 
+
 //creating getDataFromServer function with two parameters 
 function getDataFromServer(url, callbackFunction) {
 	fetch(url)
