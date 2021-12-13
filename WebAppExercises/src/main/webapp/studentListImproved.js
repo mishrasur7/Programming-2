@@ -2,10 +2,14 @@ function main() {
 	getDataFromServer("/WebAppExercises/students", printStudents);
 }
 
+main();
+
 function printStudents(studentList) {
 
 	var studentTable = document.getElementById("studentListTable");
+	
 	for (var student of studentList) {
+	
 		//Inserting a new row in a table
 		var newRow = studentTable.insertRow();
 
@@ -28,4 +32,4 @@ function printStudents(studentList) {
 
 
 }
-main(); 
+ 
