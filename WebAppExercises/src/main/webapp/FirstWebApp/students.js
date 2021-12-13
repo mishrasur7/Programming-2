@@ -4,6 +4,10 @@ function main() {
 
 main();
 
+function addStudent() {
+location.replace("studentAdd.html"); 
+}
+
 function printStudents(studentList) {
 
 	var studentTable = document.getElementById("studentListTable");
@@ -19,6 +23,7 @@ function printStudents(studentList) {
 		var newCell4 = newRow.insertCell(3);
 		var newCell5 = newRow.insertCell(4);
 		var newCell6 = newRow.insertCell(5);
+		var newCell7 = newRow.insertCell(6); 
 
 		newCell1.innerHTML = student.id;
 		newCell2.innerHTML = student.lastName;
@@ -26,10 +31,10 @@ function printStudents(studentList) {
 		newCell4.innerHTML = student.streetAddress;
 		newCell5.innerHTML = student.postCode;
 		newCell6.innerHTML = student.postOffice;
+		newCell7.innerHTML = "Update " + "Delete"; 
 
 
 	}
-
-
 }
+
  
