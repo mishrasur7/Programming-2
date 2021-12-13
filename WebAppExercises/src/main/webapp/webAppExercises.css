@@ -12,13 +12,24 @@ input {
 	border: 2px solid black; 
 }
 
-#button {
+/* css for buttons add and cancel*/ 
+.buttonAdd {
 	height: 30px; 
 	width: 50px; 
-	background-color: yellow; 
+	background-color: rgb(122, 255, 3); 
 	
 }
 
+.buttonCancel { 
+	height: 30px; 
+	width: 50px; 
+	background-color: rgb(255, 100, 80);  
+	
+}
+
+.span {
+	padding-left: 50px; 
+}
 /*css for class and id of table for students.html page*/
 
 #dataId {

@@ -7,20 +7,20 @@
 <script type="text/javascript" src="../ajaxhelper.js"></script>
 </head>
 <body>
-	<form id ="formStudent" name="formStudent">
-	<label for ="id">Id</label><br>
-	<input type ="number" id="id"><br>
-	<label for ="firstName">First name</label><br>
-	<input type ="text" id="firstName"><br>
-	<label for ="lastName">Last name</label><br>
-	<input type ="text" id="lastName"><br>
-	<label for ="streetAddress">Street address</label><br>
-	<input type ="text" id="streetAddress"><br>
-	<label for ="postCode">Post code</label><br>
-	<input type ="text" id="postCode"><br>
-	<label for ="postOffice">Post office</label><br>
-	<input type ="text" id="postOffice"><br>
-	<button id ="button" type="button" onclick ="addStudent()">Add</button>
+	<h1>Add student</h1>
+	<form id="formStudent" name="formStudent">
+		<label for="id">Id</label><br> <input type="number" id="id"><br>
+		<label for="firstName">First name</label><br> <input type="text"
+			id="firstName"><br> <label for="lastName">Last
+			name</label><br> <input type="text" id="lastName"><br> <label
+			for="streetAddress">Street address</label><br> <input
+			type="text" id="streetAddress"><br> <label
+			for="postCode">Post code</label><br> <input type="text"
+			id="postCode"><br> <label for="postOffice">Post
+			office</label><br> <input type="text" id="postOffice"><br>
+		<button class="buttonAdd" type="button" onclick="addStudent()">Add</button>
+		<span class="span"><button class="buttonCancel" type="button" onclick="cancel()">Cancel</button></span>
+		
 	</form>
 	<script src="studentAdd.js"></script>
 </body>
