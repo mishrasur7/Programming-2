@@ -15,10 +15,15 @@ function addStudent() {
 		body: requestParameters
 	};
 
-	postDataToServer(url, requestParameters, processStatus); 
+	postDataToServer(url, requestParameters, processStatus);
+	location.replace("students.html");  
 
 }
 
+function cancel() {
+ location.replace("students.html"); 
+}
+ 
 function processStatus(status) {
 	if (status.errorCode === 0) {
 		alert("Student data added!");
