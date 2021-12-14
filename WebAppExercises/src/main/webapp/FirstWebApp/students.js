@@ -36,15 +36,20 @@ function printStudents(studentList) {
 }
 //defining function to create update and delete links on the table
 function createUpdateDeleteLinks(id) {
-	return "<span class='link' onclick='updateStudent(" + id + ");'>Update</span>" +
+	return "<span class='link1' onclick='updateStudent(" + id + ");'>Update</span>" +
 		"&nbsp;&nbsp;" +
-		"<span class='link' onclick='deleteStudent(" + id + ");'>Delete</span>";
+		"<span class='link2' onclick='deleteStudent(" + id + ");'>Delete</span>";
 }
 
-function updateStudent() {
-	alert(97);
+
+//defining a function to update..but unfortunately this is not fully implemented
+function updateStudent(id) {
+	alert("This function is not available yet!"); 
+	location.replace("students.html");  
 }
 
+
+//defining a function deleteStudent that will use postDataToServer function from ajaxHelper
 function deleteStudent(id) {
 	var confirmMessage = confirm("Delete student " + id + " ?");
 	if(confirmMessage == true) {

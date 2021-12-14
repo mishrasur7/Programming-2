@@ -1,5 +1,5 @@
 function addStudent() {
-	var url = "http://localhost:8080/WebAppExercises/addStudent";
+	var url = "/WebAppExercises/addStudent";
 	var form = document.forms["formStudent"];
 	var requestParameters =
 		"id=" + form["id"].value +
@@ -9,23 +9,7 @@ function addStudent() {
 		"&postCode=" + form["postCode"].value +
 		"&postOffice=" + form["postOffice"].value;
 
-	var requestOptions = {
-		method: "POST",
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: requestParameters
-	};
-
-	fetch(url, requestOptions)
-		.then(response => {
-			if (response.ok) {
-				return response.json();
-			} else {
-				throw "HTTP status code is " + response.status;
-			}
-		})
-		.then(status => processStatus(status))
-		.catch(errorText => alert("postDataToServer failed: " + errorText));
-
+	postDataToServer(url, requestParameters, processStatus);
 }
 
 function processStatus(status) {
