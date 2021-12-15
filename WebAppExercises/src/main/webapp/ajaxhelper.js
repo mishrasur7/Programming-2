@@ -34,7 +34,6 @@ function postDataToServer(url, requestParameters, callbackFunction) {
 		})
 		.then(status => callbackFunction(status))
 		.catch(errorText => alert("postDataToServer failed: " + errorText));
-
 }
 
 
