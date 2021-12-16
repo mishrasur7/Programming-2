@@ -9,7 +9,7 @@ function deleteStudent() {
 
 
 //defining a function processStatus that can be used as a reference to 
-//postDataToServer function 
+//postDataToServer function..this function will be used in other programs 
 function processStatus(status) {
 	if (status.errorCode >= 1) {
 		alert("Student data deleted!");
