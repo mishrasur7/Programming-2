@@ -12,7 +12,7 @@ import data_access.DbUtils;
 public class SimpleStudentListProgram {
 
 	public static void main(String[] args) {
-		//lets make some null objects first
+		//lets make some null objects first by initializing our resources 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
