@@ -3,6 +3,10 @@ body {
 	padding-left : 250px; 
 }
 
+h1, h2 {
+	padding-left : 150px; 
+}
+
 table, td {
 	border : 1px solid; 
 	border-collapse : collapse; 
